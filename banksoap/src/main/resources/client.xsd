@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://eif.viko.lt/mj/springsoap/gen"
+           targetNamespace="http://eif.viko.lt/mj/springsoap/gen"
+           elementFormDefault="qualified">
+
+  <xs:element name="getClientRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="client" type="client"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getClientAccountRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="username" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getClientAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="account" type="AccountType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getClientBankAccountRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="currency" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getClientBankAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="BankAccount" type="BankAccountType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getClientCreditCardRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CVC" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getClientCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CreditCard" type="CreditCardType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getClientLoanRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="loanEndDate" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="getClientLoanResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Loan" type="LoanType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+
+  <xs:element name="firstName" type="xs:string"/>
+  <xs:element name="lastName" type="xs:string"/>
+  <xs:element name="account" type="AccountType"/>
+  <xs:element name="password" type="xs:string"/>
+  <xs:element name="username" type="xs:string"/>
+  <xs:element name="BankAccountList" type="BankAccountListType"/>
+  <xs:element name="balance" type="xs:double"/>
+  <xs:element name="currency" type="xs:string"/>
+  <xs:element name="LoanList" type="LoanListType"/>
+  <xs:element name="CreditCardList" type="CreditCardListType"/>
+  <xs:element name="BankAccount" type="BankAccountType"/>
+  <xs:element name="Loan" type="LoanType"/>
+  <xs:element name="loanAmount" type="xs:double"/>
+  <xs:element name="loanEndDate" type="xs:string"/>
+  <xs:element name="loanPercent" type="xs:int"/>
+  <xs:element name="loanStartDate" type="xs:string"/>
+  <xs:element name="monthlyPayment" type="xs:double"/>
+  <xs:element name="CreditCard" type="CreditCardType"/>
+  <xs:element name="CVC" type="xs:string"/>
+  <xs:element name="cardLimit" type="xs:double"/>
+  <xs:element name="cardNumber" type="xs:string"/>
+  <xs:element name="expireDate" type="xs:string"/>
+
+
+    <xs:complexType name="client">
+      <xs:sequence>
+        <xs:element ref="firstName"/>
+        <xs:element ref="lastName"/>
+        <xs:element ref="account"/>
+        <xs:element ref="BankAccountList"/>
+        <xs:element ref="LoanList"/>
+        <xs:element ref="CreditCardList"/>
+      </xs:sequence>
+    </xs:complexType>
+
+
+  <xs:complexType name="AccountType">
+    <xs:sequence>
+      <xs:element ref="password"/>
+      <xs:element ref="username"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BankAccountListType">
+    <xs:sequence>
+      <xs:element ref="BankAccount" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BankAccountType">
+    <xs:sequence>
+      <xs:element ref="balance"/>
+      <xs:element ref="currency"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LoanListType">
+    <xs:sequence>
+      <xs:element ref="Loan" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LoanType">
+    <xs:sequence>
+      <xs:element ref="loanAmount"/>
+      <xs:element ref="loanEndDate"/>
+      <xs:element ref="loanPercent"/>
+      <xs:element ref="loanStartDate"/>
+      <xs:element ref="monthlyPayment"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CreditCardListType">
+    <xs:sequence>
+      <xs:element ref="CreditCard" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CreditCardType">
+    <xs:sequence>
+      <xs:element ref="CVC"/>
+      <xs:element ref="cardLimit"/>
+      <xs:element ref="cardNumber"/>
+      <xs:element ref="expireDate"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
